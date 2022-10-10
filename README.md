@@ -1,5 +1,11 @@
 # Unity Bezier Solution
 
+![](https://img.shields.io/badge/unity-2018.3%20or%20later-green.svg)
+[![⚙ Build and Release](https://github.com/hww/XiBezierSolution/actions/workflows/ci.yml/badge.svg)](https://github.com/hww/XiBezierSolution/actions/workflows/ci.yml)
+[![openupm](https://img.shields.io/npm/v/com.hww.xibeziersolution?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.hww.xibeziersolution/)
+[![](https://img.shields.io/github/license/hww/XiBezierSolution.svg)](https://github.com/hww/XiBezierSolution/blob/master/LICENSE)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
 ![intro](Docs/Images/Promo.png)
 
 **Available on Asset Store:** https://assetstore.unity.com/packages/tools/level-design/bezier-solution-113074
