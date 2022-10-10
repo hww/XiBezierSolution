@@ -1,6 +1,6 @@
 # Unity Bezier Solution
 
-![intro](Images/Promo.png)
+![intro](Docs/Images/Promo.png)
 
 **Available on Asset Store:** https://assetstore.unity.com/packages/tools/level-design/bezier-solution-113074
 
@@ -34,11 +34,10 @@ To create a new spline in the editor, click **GameObject - Bezier Spline**.
 
 Now you can select the end points of the spline in the Scene view and translate/rotate/scale or delete/duplicate them as you wish (each end point has 2 control points, which can also be translated):
 
-![translate](Images/EndPointHandles.png)
 
 The user interface for the spline editor should be pretty self-explanatory with most variables having explanatory tooltips.
 
-![inspector](Images/BezierSpline.png)
+![inspector](Docs/Images/BezierSpline.png)
 
 When **Quick Edit Mode** is enabled, new points can quickly be added/inserted to the spline and the existing points can be dragged around/snapped to the scene geometry.
 
@@ -46,7 +45,7 @@ To reverse the order of the end points in a spline, you can right click the Bezi
 
 You can tweak the Scene view gizmos via *Project Settings/yasirkula/Bezier Solution* page (on older versions, this menu is located at *Preferences* window).
 
-![gizmo-settings](Images/GizmoSettings.png)
+![gizmo-settings](Docs/Images/GizmoSettings.png)
 
 ## CREATING & EDITING A NEW SPLINE BY CODE
 
@@ -100,13 +99,13 @@ spline[0].followingControlPointPosition = spline[1].position;
 
 If you don't want to position all the control points manually, but rather generate a nice-looking "continuous" spline that goes through the end points you have created, you can call either **AutoConstructSpline()** or **AutoConstructSpline2()**. These methods are implementations of some algorithms found on the internet (and credited in the source code). If you want these functions to be called automatically when spline's end points are modified, simply change the spline's **autoConstructMode** property.
 
-![auto-construct](Images/AutoConstructSpline.png)
+![auto-construct](Docs/Images/AutoConstructSpline.png)
 
 - **Convert spline to a linear path**
 
 If you want to create a linear path between the end points of the spline, you can call the **ConstructLinearPath()** function. Or, if you want this function to be called automatically when spline's end points are modified, simply set the spline's **autoConstructMode** property to **SplineAutoConstructMode.Linear**.
 
-![auto-construct](Images/ConstructLinearPath.png)
+![auto-construct](Docs/Images/ConstructLinearPath.png)
 
 - **Auto calculate the normals**
 
@@ -196,25 +195,25 @@ The plugin comes with some additional components that may help you move objects 
 
 - **BezierWalkerWithSpeed**
 
-![walker-with-speed](Images/BezierWalkerWithSpeed.png)
+![walker-with-speed](Docs/Images/BezierWalkerWithSpeed.png)
 
 Moves an object along a spline with constant speed. There are 3 travel modes: Once, Ping Pong and Loop. If *Look At* is Forward, the object will always face forwards (end points' normal vectors will be used as up vectors). If it is SplineExtraData, the extra data stored in the spline's end points is used to determine the rotation. You can modify this extra data from the points' Inspector. The smoothness of the rotation can be adjusted via *Rotation Lerp Modifier*. *Normalized T* determines the starting point. Each time the object completes a lap, its *On Path Completed ()* event is invoked. To see this component in action without entering Play mode, click the *Simulate In Editor* button.
 
 - **BezierWalkerWithTime**
 
-![walker-with-time](Images/BezierWalkerWithTime.png)
+![walker-with-time](Docs/Images/BezierWalkerWithTime.png)
 
 Travels a spline in *Travel Time* seconds. *Movement Lerp Modifier* parameter defines the smoothness applied to the position of the object. If *High Quality* is enabled, the spline will be traversed with constant speed but the calculations can be more expensive.
 
 - **BezierWalkerLocomotion**
 
-![walker-locomotion](Images/BezierWalkerLocomotion.png)
+![walker-locomotion](Docs/Images/BezierWalkerLocomotion.png)
 
 Allows you to move a number of objects together with this object on a spline. This component must be attached to an object with a BezierWalker component (tail objects don't need a BezierWalker, though). *Look At*, *Movement Lerp Modifier* and *Rotation Lerp Modifier* parameters affect the tail objects. If tail objects jitter too much, enabling *High Quality* may help greatly but the calculations can be more expensive.
 
 - **ParticlesFollowBezier**
 
-![particles-follow-bezier](Images/ParticlesFollowBezier.png)
+![particles-follow-bezier](Docs/Images/ParticlesFollowBezier.png)
 
 Moves particles of a Particle System in the direction of a spline. It is recommended to set the **Simulation Space** of the Particle System to **Local** for increased performance. This component affects particles in one of two ways:
 
@@ -226,7 +225,7 @@ Note that if the **Resimulate** tick of the Particle System is selected, particl
 
 - **BezierAttachment**
 
-![bezier-attachment](Images/BezierAttachment.png)
+![bezier-attachment](Docs/Images/BezierAttachment.png)
 
 Snaps an object to the specified point of the spline. You can snap the object's position and/or rotation values, optionally with some offsets. Rotation can be snapped in one of two ways:
 
@@ -236,13 +235,13 @@ Snaps an object to the specified point of the spline. You can snap the object's 
 
 - **BezierLineRenderer**
 
-![bezier-line-renderer](Images/BezierLineRenderer.png)
+![bezier-line-renderer](Docs/Images/BezierLineRenderer.png)
 
 Automatically positions a Line Renderer's points so that its shape matches the target spline's shape. It is possible to match the shape of only a portion of the spline by tweaking the *Spline Sample Range* property. If Line Renderer's **Use World Space** property is enabled, then its points will be placed at the spline's current position. Otherwise, the points will be placed relative to the Line Renderer's position and they will rotate/scale with the Line Renderer.
 
 - **BendMeshAlongBezier**
 
-![bend-mesh-along-bezier](Images/BendMeshAlongBezier.png)
+![bend-mesh-along-bezier](Docs/Images/BendMeshAlongBezier.png)
 
 Modifies a MeshFilter's mesh to bend it in the direction of a spline (make sure that the spline's normals are perpendicular to the spline; *Auto Calculate Normals* may help). If *High Quality* is enabled, evenly spaced bezier points will be used so that the mesh bends uniformly but the calculations will be more expensive. If *Auto Refresh* is enabled, the mesh will be refreshed automatically when the spline is modified (at runtime, this has the same effect with disabling the component but in edit mode, disabling the component will restore the original mesh instead). Mesh's normal and tangent vectors can optionally be recalculated in one of two ways:
 
